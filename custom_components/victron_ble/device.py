@@ -12,7 +12,7 @@ from victron_ble.devices.battery_sense import BatterySenseData
 from victron_ble.devices.dc_energy_meter import DcEnergyMeterData
 from victron_ble.devices.dcdc_converter import DcDcConverterData
 from victron_ble.devices.solar_charger import SolarChargerData
-from victron_ble.devices.smart_charger import SmartCharger
+from victron_ble.devices.smart_charger import SmartChargerData
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -135,7 +135,7 @@ class VictronBluetoothDeviceData(BluetoothData):
             self.update_predefined_sensor(
                 SensorLibrary.VOLTAGE__ELECTRIC_POTENTIAL_VOLT, parsed.get_voltage()
             )
-        elif isinstance(parsed, SmartCharger):
+        elif isinstance(parsed, SmartChargerData):
             self.update_predefined_sensor(
                 SensorLibrary.VOLTAGE__ELECTRIC_POTENTIAL_VOLT, parsed.get_battery_voltage()
             )
