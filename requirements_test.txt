@@ -1,9 +1,13 @@
 -r requirements_dev.txt
+aiohttp
+aiohttp-cors
+home-assistant-bluetooth
 pytest-homeassistant-custom-component
 victron_ble @ git+https://github.com/notjj/victron-ble
 bleak_retry_connector
 serial
 pyserial
+pyudev
 aiousbwatcher
 bluetooth_adapters
 bluetooth_auto_recovery
