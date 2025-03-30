@@ -44,10 +44,10 @@ jobs:
     name: HACS
     steps:
       - name: Check out the repository
-        uses: "actions/checkout@v3.3.0"
+        uses: "actions/checkout@v4"
 
       - name: HACS validation
-        uses: "hacs/action@22.5.0"
+        uses: "hacs/action@main"
         with:
           category: "integration"
           ignore: brands
@@ -57,7 +57,7 @@ jobs:
     name: Hassfest
     steps:
       - name: Check out the repository
-        uses: "actions/checkout@v3.3.0"
+        uses: "actions/checkout@v4"
 
       - name: Hassfest validation
         uses: "home-assistant/actions/hassfest@master"
@@ -66,9 +66,9 @@ jobs:
     name: Run tests
     steps:
       - name: Check out code from GitHub
-        uses: "actions/checkout@v3.3.0"
+        uses: "actions/checkout@v4"
       - name: Setup Python ${{ env.DEFAULT_PYTHON }}
-        uses: "actions/setup-python@v4.5.0"
+        uses: "actions/setup-python@v5"
         with:
           python-version: ${{ env.DEFAULT_PYTHON }}
       - name: Install requirements
@@ -78,9 +78,10 @@ jobs:
       - name: Tests suite
         run: |
           pytest \
-            --timeout=9 \
-            --durations=10 \
-            -n auto \
-            -p no:sugar \
-            --fixtures \
-            tests/
+            -v \
+            --cov-config .coveragerc \
+            --cov=custom_components \
+            -l \
+            --tb=short \
+            --maxfail=1 \
+            tests
