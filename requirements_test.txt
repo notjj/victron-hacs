@@ -4,5 +4,8 @@ victron_ble @ git+https://github.com/notjj/victron-ble
 bleak_retry_connector
 serial
 pyserial
+aiousbwatcher
 bluetooth_adapters
+bluetooth_auto_recovery
+bluetooth_data_tools
 bluetooth_sensor_state_data
